@@ -1,18 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap");
 :root {
   --primary-color: #1b262c;
-  --secondary-color: #0f4c75;
+  --secondary-color: #0c344e;
   --tertiary-color: #3282b8;
   --neutral-color: #bbe1fa;
   --text-color: #ffffff;
-  --gradient-color: linear-gradient(135deg, #346d94, #0f4c75);
+  --gradient-color: linear-gradient(135deg, #3abef9, #3572ef, #050c9c);
 }
 
 body {
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   margin: 0;
   padding: 0;
-  max-width: 100%;
+  min-width: 100%;
   background-color: var(--primary-color);
 }
 body header {
@@ -24,7 +24,6 @@ body header h1 {
   margin: 0;
 }
 body header nav {
-  background-color: var(--primary-color);
   padding: 10px 25px;
   margin: 0;
   display: flex;
@@ -32,21 +31,34 @@ body header nav {
   justify-content: space-between;
   width: 100%;
   box-sizing: border-box;
+  position: fixed;
+  z-index: 10;
 }
 body header nav div {
   display: flex;
   align-items: center;
 }
-body header nav div img {
-  width: 70px;
-  height: 70px;
-  padding: 5px;
+body header nav div div {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: double 5px transparent;
+  background-image: linear-gradient(white, white), linear-gradient(135deg, #3abef9, #3572ef, #050c9c);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+body header nav div div img {
+  width: 40px;
+  height: 40px;
 }
 body header nav div h1 {
   color: var(--text-color);
   font-size: 1.3rem;
-  font-weight: 400;
-  margin: 0;
+  font-weight: 600;
+  margin: 0 10px;
   width: 10em;
 }
 body header nav ul {
@@ -54,6 +66,8 @@ body header nav ul {
   padding: 0;
   display: flex;
   gap: 100px;
+  justify-content: center;
+  align-items: center;
 }
 body header nav ul li a {
   font-size: 1.1rem;
@@ -65,25 +79,33 @@ body header nav ul li a:hover {
   color: var(--tertiary-color);
 }
 body header nav ul > li:first-child a {
+  position: relative;
   color: var(--neutral-color);
   padding: 10px 20px;
   border-radius: 50px;
   font-size: 1.1rem;
   font-weight: 700;
   text-decoration: none;
-  border: 4px solid; /* Ketebalan border */
-  border-radius: 20px; /* Border radius lengkung */
-  -o-border-image: linear-gradient(to right, #1c8edb, #0f4c75) 1;
-     border-image: linear-gradient(to right, #1c8edb, #0f4c75) 1; /* Warna gradient */
-  padding: 5px;
-  border-radius: 50px;
+  cursor: pointer;
 }
 body header nav ul > li:first-child a:hover {
-  background-color: #88abc0;
+  background-color: rgba(0, 191, 255, 0.1);
+}
+body header nav ul > li:first-child a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 3px;
+  background: var(--gradient-color);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
 }
 body header .Hero-Section {
   width: 100%;
-  height: 84.8vh;
+  height: 100vh;
   position: relative;
 }
 body header .Hero-Section > div:first-child {
@@ -148,13 +170,47 @@ body header .Hero-Section > div:last-child::after {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(48, 56, 65, 0.5));
   pointer-events: none;
 }
+body .nav-scroll {
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  transition: 0.3s;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
 body main {
-  height: 100vh;
+  height: auto;
   width: 100%;
   background-color: var(--primary-color);
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+body main > section#Tentang {
+  padding: 40px;
+  width: 100%;
+  height: 45vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--secondary-color);
+  text-align: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+body main > section#Tentang h1 {
+  font-family: "Raleway", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 20px 0;
+}
+body main > section#Tentang article {
+  color: var(--secondary-color);
+  width: 80%;
+}
+body main > section#Tentang article p {
+  font-size: 1.2rem;
+  font-weight: 250;
+  margin: 0;
+  color: var(--neutral-color);
 }
 body main > section#Sambutan {
   position: relative;
@@ -282,4 +338,268 @@ body main > section#Sambutan .Sambutan-Section article button a {
   color: var(--text-color);
   padding: 1px 5px;
   display: block;
+}
+body main > section#Kegiatan {
+  padding: 40px;
+  width: 100%;
+  height: 130vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  color: var(--gradient-color);
+  background-color: white;
+  border-radius: 40px;
+}
+body main > section#Kegiatan h1 {
+  font-family: "Raleway", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--primary-color);
+  margin-bottom: 0;
+}
+body main > section#Kegiatan hr {
+  width: 150px;
+  border: 2px solid;
+  -o-border-image: var(--gradient-color) 2;
+     border-image: var(--gradient-color) 2;
+}
+body main > section#Kegiatan #Kegiatan-Cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 14px;
+  grid-row-gap: 14px;
+  margin-top: 20px;
+  justify-items: center;
+  gap: 20px;
+  box-sizing: border-box;
+  color: var(--primary-color);
+}
+body main > section#Kegiatan #Kegiatan-Cards div {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 100px 20px 20px 20px;
+  border-radius: 10px;
+  height: 20em;
+  width: 25em;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  box-sizing: border-box;
+  justify-content: space-between;
+  box-shadow: 2px 4px 9px -2px rgba(0, 0, 0, 0.75);
+}
+body main > section#Kegiatan #Kegiatan-Cards div h3 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin: 0;
+}
+body main > section#Kegiatan #Kegiatan-Cards div p {
+  font-size: 1rem;
+  font-weight: 250;
+  margin: 0;
+}
+body main > section#Kegiatan #Kegiatan-Cards div a {
+  background-image: var(--gradient-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  padding: 5px 15px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+body main > section#Kegiatan #Kegiatan-Cards div::before {
+  content: "";
+  position: absolute;
+  border-radius: 10px;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+body main > section#Kegiatan #Kegiatan-Cards div > * {
+  position: relative;
+  z-index: 1;
+}
+body main > section#Kegiatan #Kegiatan-Cards div:nth-of-type(1) {
+  background-image: url("/src/image/perdana.jpeg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+body main > section#Kegiatan #Kegiatan-Cards div:nth-of-type(2) {
+  background-image: url("/src/image/ultah.JPG");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+body main > section#Kegiatan #Kegiatan-Cards div:nth-of-type(3) {
+  background-image: url("/src/image/paskah.JPG");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+body main > section#Kegiatan #Kegiatan-Cards div:nth-of-type(4) {
+  background-image: url("/src/image/lcp.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+body main > section#Kegiatan #Kegiatan-Cards div:nth-of-type(5) {
+  background-image: url("/src/image/makrab.JPG");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+body main > section#Kegiatan #Kegiatan-Cards div:nth-of-type(6) {
+  background-image: url("/src/image/show.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+body main > section#Kegiatan .Lihat-Kegiatan {
+  text-decoration: none;
+  background-image: var(--gradient-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 40px;
+  border: none;
+}
+body main > section#Mars {
+  position: relative;
+  padding: 40px;
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+body main > section#Mars h1 {
+  font-family: "Raleway", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--neutral-color);
+  margin: 0;
+}
+body main > section#Mars hr {
+  width: 150px;
+  border: 2px solid;
+  -o-border-image: var(--gradient-color) 2;
+     border-image: var(--gradient-color) 2;
+  margin: 10px 0;
+}
+body footer {
+  width: 100%;
+  height: 50vh;
+  background-color: var(--primary-color);
+  color: var(--neutral-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  box-sizing: border-box;
+}
+body footer hr {
+  width: 99%;
+  border: 2px solid;
+  -o-border-image: var(--gradient-color) 2;
+     border-image: var(--gradient-color) 2;
+  margin: 50px 0;
+}
+body footer .Footer-Section {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+body footer .Footer-Section div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+}
+body footer .Footer-Section div:first-child div {
+  width: 130px;
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: double 5px transparent;
+  background-image: linear-gradient(white, white), linear-gradient(135deg, #3abef9, #3572ef, #050c9c);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+body footer .Footer-Section div:first-child div img {
+  width: 90px;
+  height: 90px;
+}
+body footer .Footer-Section div:first-child h1 {
+  color: var(--text-color);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 10px;
+  width: 10em;
+  text-align: center;
+}
+body footer .Footer-Section > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 50%;
+  margin-left: 20em;
+}
+body footer .Footer-Section > div:last-child h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--neutral-color);
+  margin: 0;
+}
+body footer .Footer-Section > div:last-child table {
+  width: 100%;
+  color: var(--neutral-color);
+}
+body footer .Footer-Section > div:last-child table tr td {
+  font-size: 1rem;
+  font-weight: 250;
+  margin: 0;
+  color: white;
+}
+body footer .Footer-Section > div:last-child table tr td p {
+  font-size: 1rem;
+  font-weight: 250;
+  margin: 10px;
+}
+body footer .Footer-Section > div:last-child div {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+body footer .Footer-Section > div:last-child div i {
+  font-size: 1.8rem;
+  width: 50px;
+  color: var(--neutral-color);
+  cursor: pointer;
+  transition: 0.3s;
+}
+body footer .Footer-Section > div:last-child div i:hover {
+  color: var(--tertiary-color);
+}
+body footer .Footer-End {
+  color: white;
+  font-size: 1rem;
+  font-weight: 250;
+  margin-top: 50px;
 }/*# sourceMappingURL=main.css.map */
