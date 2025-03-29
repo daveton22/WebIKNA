@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
   <body>
     <!-- Header -->
@@ -22,16 +23,28 @@
           <h1>Ikatan Keluarga Nasrani Amikom</h1>
         </div>
         <ul>
-          <li><a href="#">Beranda</a></li>
+          <li id="Beranda"><a href="#">Beranda</a></li>
           <li><a href="#Profil">Profil</a></li>
-          <li><a href="#">Kegiatan</a></li>
+          <li class="dropdown">
+            <a href="#">Kegiatan</a>
+            <!-- <i class="fa-solid fa-caret-left"></i> -->
+
+            <ul class="dropdown-menu">
+              <li><a href="#" class="dropdown__link">Ibadah Perdana</a></li>
+              <li><a href="#" class="dropdown__link">Ulang Tahun IKNA</a></li>
+              <li><a href="#" class="dropdown__link">Paskah IKNA</a></li>
+              <li><a href="#" class="dropdown__link">LCP</a></li>
+              <li><a href="#" class="dropdown__link">MAKRAB IKNA</a></li>
+              <li><a href="#" class="dropdown__link">IKNA Show</a></li>
+            </ul>
+          </li>
           <li><a href="#">Struktur</a></li>
           <li><a href="#">Tentang Kami</a></li>
         </ul>
       </nav>
       <!-- Hero Section -->
       <div class="Hero-Section">
-        <div>
+        <div data-aos="fade-right">
           <h2>Selamat Datang di Official Website</h2>
           <h1>IKATAN KELUARGA NASRANI AMIKOM</h1>
           <p>
@@ -46,8 +59,29 @@
             <i class="fab fa-tiktok"></i>
           </div>
         </div>
+
+        <!-- <div id="audio-controller">
+          <div class="spinning-disc">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg1EpgJizOFLtW-BEi6dCWoqj_-ZnT7h4LSg&s"
+              alt="Spinning Disc"
+            />
+          </div>
+          <div class="now-playing">
+            <p>Now Playing</p>
+            <h3>Kita Kesana - Hindia</h3>
+          </div>
+        </div> -->
+
+        <!-- <audio controls autoplay>
+          <source src="/src/music.mp3" type="audio/mpeg" />
+        </audio> -->
+
         <div>
-          <img src="/src/IMG_6903.jpg" alt="" />
+          <!-- <img src="/src/IMG_6903.jpg" alt="" /> -->
+          <video autoplay muted loop style="width: 100%">
+            <source src="/src/video.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
     </header>
@@ -56,9 +90,9 @@
     <main>
       <!-- Tentang -->
       <section id="Tentang">
-        <h1>Tentang Ikna</h1>
+        <h1 data-aos="fade-up">Tentang Ikna</h1>
 
-        <article>
+        <article data-aos="fade-up">
           <p>
             IKNA adalah singkatan dari Ikatan Keluarga Nasrani Amikom, yang
             merupakan Unit Kegiatan Mahasiswa (UKM) yang berisi Mahasiswa
@@ -78,7 +112,7 @@
         <h1>SAMBUTAN</h1>
         <hr />
         <div class="Sambutan-Section">
-          <div>
+          <div data-aos="fade-right">
             <h2>Aureliuz Feliz Egi Natividad</h2>
             <hr />
             <h3>Ketua IKNA 2024/2025</h3>
@@ -86,7 +120,7 @@
               <img src="/src/ketua.png" alt="" />
             </div>
           </div>
-          <article>
+          <article data-aos="fade-left">
             <p>
               Salam sejahtera dalam kasih Tuhan Yesus Kristus. IKNA hadir
               sebagai wadah bagi mahasiswa Kristen AMIKOM untuk bersatu dalam
@@ -112,7 +146,7 @@
         <h1>KEGIATAN</h1>
         <hr />
         <!-- Cards -->
-        <div id="Kegiatan-Cards">
+        <div id="Kegiatan-Cards" data-aos="zoom-in-up">
           <div>
             <h2>IBADAH PERDANA</h2>
             <p>
@@ -123,6 +157,7 @@
             </p>
             <a href="">
               <h3>Selengkapnya</h3>
+              <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
           <div>
@@ -135,6 +170,7 @@
             </p>
             <a href="">
               <h3>Selengkapnya</h3>
+              <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
           <div>
@@ -147,6 +183,7 @@
             </p>
             <a href="">
               <h3>Selengkapnya</h3>
+              <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
           <div>
@@ -159,6 +196,7 @@
             </p>
             <a href="">
               <h3>Selengkapnya</h3>
+              <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
           <div>
@@ -170,6 +208,7 @@
             </p>
             <a href="">
               <h3>Selengkapnya</h3>
+              <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
           <div>
@@ -177,10 +216,12 @@
             <p>
               IKNA Show adalah sebuah kegiatan yang bertujuan untuk menampilkan
               bakat-bakat atau talenta- talenta yang ada di IKNA. Seperti
-              talenta pertunjukkan, musik, dan olahraga
+              talenta pertunjukkan, musik, dan olahraga yang pastinya bakal seru
+              banget.
             </p>
             <a href="">
               <h3>Selengkapnya</h3>
+              <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
         </div>
@@ -191,7 +232,7 @@
       <section id="Mars">
         <h1>Mars IKNA</h1>
         <hr />
-        <div>
+        <div data-aos="zoom-in">
           <iframe
             width="560"
             height="315"
@@ -211,14 +252,14 @@
       <hr />
       <div class="Footer-Section">
         <!-- logo and name -->
-        <div>
+        <div data-aos="fade-right">
           <div>
             <img src="/src/logo.PNG" alt="logoIkna" />
           </div>
           <h1>Ikatan Keluarga Nasrani Amikom</h1>
         </div>
         <!-- contact, address, email, and media socials -->
-        <div>
+        <div data-aos="fade-left">
           <h1>Kontak Kami</h1>
           <table>
             <tr>
@@ -261,4 +302,8 @@
     </footer>
   </body>
   <script src="/script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </html>
