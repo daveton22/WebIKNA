@@ -81,40 +81,30 @@ body header nav ul > li {
   justify-content: center;
   align-items: center;
   position: relative;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+body header nav ul > li::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 2px;
+  background-color: var(--tertiary-color);
+  bottom: 25%;
+  left: 0 auto;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1;
+}
+body header nav ul > li:not(.dropdown-menu > li):hover::before {
+  background-color: var(--tertiary-color);
+  transform: scaleX(2);
 }
 body header nav ul > li a {
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--neutral-color);
+  color: white;
   text-decoration: none;
-}
-body header nav ul > li a:hover {
-  color: var(--tertiary-color);
-}
-body header nav ul #Beranda a {
-  position: relative;
-  color: var(--neutral-color);
-  padding: 10px 20px;
-  border-radius: 50px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-decoration: none;
-  cursor: pointer;
-}
-body header nav ul #Beranda a:hover {
-  background-color: rgba(0, 191, 255, 0.2);
-}
-body header nav ul #Beranda a::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 12px;
-  padding: 3px;
-  background: var(--gradient-color);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
 }
 body header nav ul .dropdown {
   position: relative;
@@ -216,79 +206,28 @@ body header .Hero-Section > div:first-child .Social-Media > i {
 body header .Hero-Section > div:first-child .Social-Media > i:hover {
   color: var(--tertiary-color);
 }
-body header .Hero-Section #audio-controller {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-top: 20px;
-  position: absolute;
-  z-index: 30;
-  bottom: 5%;
-  right: 5%;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-  background-color: white;
-  padding: 10px 12px;
-  border-radius: 10px;
-  box-sizing: border-box;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-}
-body header .Hero-Section #audio-controller .spinning-disc {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+body header .Hero-Section > div.slideshow-container {
+  width: 100%;
+  height: 100%;
   overflow: hidden;
-  animation: spin 8s linear infinite;
-  background-color: black;
 }
-body header .Hero-Section #audio-controller .spinning-disc img {
-  width: 100%;
+body header .Hero-Section > div.slideshow-container div.slides {
+  display: flex;
+  width: 500%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body header .Hero-Section > div.slideshow-container div.slides div.slide {
+  width: 20%;
+  transition: 2s ease-in-out;
 }
-body header .Hero-Section #audio-controller .now-playing p {
-  margin: 0;
-  font-size: 14px;
-  color: #555;
-}
-body header .Hero-Section #audio-controller .now-playing h3 {
-  margin: 0;
-  font-size: 18px;
-  color: #000;
-}
-body header .Hero-Section audio {
-  position: absolute;
-  bottom: 10%;
-  right: 0;
-  display: none;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  z-index: 20;
-}
-body header .Hero-Section > div:last-child {
-  height: 100%;
-  width: 100%;
-  position: relative;
-}
-body header .Hero-Section > div:last-child img {
+body header .Hero-Section > div.slideshow-container div.slides div.slide img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   display: block;
 }
-body header .Hero-Section > div:last-child::after {
+body header .Hero-Section > div.slideshow-container::after {
   content: "";
   position: absolute;
   top: 0;
@@ -439,31 +378,20 @@ body main > section#Sambutan .Sambutan-Section div div::after {
 }
 body main > section#Sambutan .Sambutan-Section article {
   color: var(--primary-color);
-  width: 60%;
+  width: 70%;
 }
 body main > section#Sambutan .Sambutan-Section article p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 250;
   margin: 0;
   color: var(--text-color);
+  line-height: 1.2;
+  text-align: justify;
+  text-indent: 2em;
 }
-body main > section#Sambutan .Sambutan-Section article button {
-  background: var(--gradient-color);
-  color: var(--text-color);
-  font-size: 0.6rem;
-  font-weight: 700;
-  border: none;
-  border-radius: 50px;
-  padding: 5px 15px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-body main > section#Sambutan .Sambutan-Section article button:hover {
-  background: var(--gradient-color);
-}
-body main > section#Sambutan .Sambutan-Section article button a {
+body main > section#Sambutan .Sambutan-Section article a {
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--tertiary-color);
   padding: 1px 5px;
   display: block;
 }
@@ -675,7 +603,7 @@ body main > section#Mars hr {
 }
 body footer {
   width: 100%;
-  height: 50vh;
+  height: 70vh;
   background-color: var(--primary-color);
   color: var(--neutral-color);
   display: flex;
