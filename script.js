@@ -13,14 +13,6 @@ window.onscroll = function () {
 };
 
 // when hover kegiatan, rotate the arrow icon
-document.querySelector(".dropdown").addEventListener("mouseover", () => {
-  document.querySelector(".fa-caret-left").style.transform = "rotate(-90deg)";
-});
-
-document.querySelector(".dropdown").addEventListener("mouseout", () => {
-  document.querySelector(".fa-caret-left").style.transform = "rotate(0deg)";
-});
-
 // make me a javascript autoslide image using setInterval
 var counter = 1;
 setInterval(() => {
